@@ -2,14 +2,14 @@ import cloudSaves from './API/SavesData';
 import medalScene from './API/medalScene';
 import { newgroundsIOWrapper } from './API/newgroundsIOWrapper';
 import Preload from './scenes/Preload';
+import TestScene from './scenes/TestScene';
 
 
 window.addEventListener('load', function ()
 {
 	var game = new Phaser.Game( 
 	{
-		title: 'Template',
-		// url: 'https://www.newgrounds.com/projects/games/1923225/preview',
+		title: 'Office Simulator',
 		version: '0',
 		
 	// visuals
@@ -29,6 +29,7 @@ window.addEventListener('load', function ()
 	game.scene.add("Preload", Preload);
 	game.scene.add("Boot", Boot, true);
 	game.scene.add('medal-scene', medalScene);
+	game.scene.add('test-scene', TestScene);
 });
 
 class Boot extends Phaser.Scene
@@ -61,7 +62,8 @@ class Boot extends Phaser.Scene
 			}
 		});
 		
-		this.setSaveDataKeys();
+		// this.setSaveDataKeys();
+		/*  */
 	}
 
 	/**

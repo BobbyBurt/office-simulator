@@ -1,20 +1,30 @@
 {
-    "id": "04331fb6-ed91-4d74-b6e9-4bfe0fcfb457",
+    "id": "e5395ba1-a551-4e59-9343-fc6d778b50e7",
     "sceneType": "SCENE",
     "settings": {
         "exportClass": true,
         "autoImport": true,
-        "preloadMethodName": "editorPreload",
-        "preloadPackFiles": [
-            "starter-template-basic-typescript/assets/asset-pack.json"
-        ],
+        "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "Preload",
+        "sceneKey": "test-scene",
         "compilerOutputLanguage": "TYPE_SCRIPT",
         "borderWidth": 480,
         "borderHeight": 270
     },
-    "displayList": [],
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "1c327fc4-beb7-44b6-9426-04dae1c4116c",
+            "label": "toidSketch",
+            "texture": {
+                "key": "ToidSketch"
+            },
+            "x": 108,
+            "y": 96,
+            "scaleX": 0.4253923881732923,
+            "scaleY": 0.4253923881732923
+        }
+    ],
     "plainObjects": [],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
