@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/QR.png",
+                "type": "image",
+                "key": "QR"
+            },
+            {
                 "url": "assets/ToidSketch.png",
                 "type": "image",
                 "key": "ToidSketch"

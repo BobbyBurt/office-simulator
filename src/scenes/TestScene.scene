@@ -8,8 +8,8 @@
         "createMethodName": "editorCreate",
         "sceneKey": "test-scene",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 480,
-        "borderHeight": 270
+        "borderWidth": 960,
+        "borderHeight": 480
     },
     "displayList": [
         {
@@ -19,8 +19,8 @@
             "texture": {
                 "key": "ToidSketch"
             },
-            "x": 108,
-            "y": 96,
+            "x": 184,
+            "y": 151,
             "scaleX": 0.4253923881732923,
             "scaleY": 0.4253923881732923
         }
