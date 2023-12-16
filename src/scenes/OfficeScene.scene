@@ -1,0 +1,74 @@
+{
+    "id": "e5395ba1-a551-4e59-9343-fc6d778b50e7",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "office-scene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 960,
+        "borderHeight": 480
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "20ef2d43-8349-4834-952c-9dba0a34c71f",
+            "label": "fNAF_bg_1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "FNAF-bg"
+            },
+            "x": 501,
+            "y": -163,
+            "scaleX": 0.4633747718556862,
+            "scaleY": 0.4633747718556862
+        },
+        {
+            "type": "Image",
+            "id": "81bdd914-4abd-4ea4-a03d-98062022b5e7",
+            "label": "fNAF_bg",
+            "scope": "CLASS",
+            "texture": {
+                "key": "FNAF-bg"
+            },
+            "x": 492,
+            "y": 88,
+            "scaleX": 0.37892719712943057,
+            "scaleY": 0.37892719712943057
+        },
+        {
+            "type": "Image",
+            "id": "1c327fc4-beb7-44b6-9426-04dae1c4116c",
+            "label": "toidSketch",
+            "scope": "CLASS",
+            "texture": {
+                "key": "ToidSketch"
+            },
+            "x": -134,
+            "y": 320,
+            "scaleX": 1.104608767712672,
+            "scaleY": 1.104608767712672
+        },
+        {
+            "type": "BitmapText",
+            "id": "3f4fc828-dae7-46a3-9336-eb4dc873a49a",
+            "label": "bitmaptext_1",
+            "x": 490,
+            "y": 259,
+            "text": "The quick brown fox jumps over a lazy dog",
+            "font": "nokia_1",
+            "fontSize": -16,
+            "maxWidth": 200,
+            "dropShadowAlpha": 0
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

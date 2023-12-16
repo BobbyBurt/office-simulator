@@ -51,7 +51,8 @@ export default class Preload extends Phaser.Scene {
 	start()
 	{
 		this.scene.stop(this);
-		this.scene.launch("test-scene");
+		this.scene.launch("computer-scene");
+		this.scene.launch("office-scene");
 	}
 
 	/* END-USER-CODE */

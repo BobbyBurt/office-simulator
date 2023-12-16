@@ -2,6 +2,22 @@
     "section1": {
         "files": [
             {
+                "url": "assets/FNAF-bg.jpg",
+                "type": "image",
+                "key": "FNAF-bg"
+            },
+            {
+                "url": "assets/fonts/nokia.png",
+                "type": "image",
+                "key": "nokia"
+            },
+            {
+                "textureURL": "assets/fonts/nokia.png",
+                "fontDataURL": "assets/fonts/nokia.xml",
+                "type": "bitmapFont",
+                "key": "nokia_1"
+            },
+            {
                 "url": "assets/QR.png",
                 "type": "image",
                 "key": "QR"
