@@ -21,15 +21,18 @@ export default class OfficeScene extends Phaser.Scene {
 
 	editorCreate(): void {
 
-		// fNAF_bg_1
-		const fNAF_bg_1 = this.add.image(501, -9, "test-background");
-		fNAF_bg_1.scaleX = 0.7537540760340492;
-		fNAF_bg_1.scaleY = 0.7537540760340492;
+		// cameraBounds
+		const cameraBounds = this.add.rectangle(-481, -234, 1920, 820);
+		cameraBounds.setOrigin(0, 0);
+		cameraBounds.isFilled = true;
+		cameraBounds.fillAlpha = 0;
+		cameraBounds.isStroked = true;
+		cameraBounds.strokeColor = 64571;
+		cameraBounds.lineWidth = 3;
 
 		// fNAF_bg
-		const fNAF_bg = this.add.image(492, 242, "test-background");
-		fNAF_bg.scaleX = 0.6693064932228694;
-		fNAF_bg.scaleY = 0.6693064932228694;
+		const fNAF_bg = this.add.image(-482, -372, "test-background");
+		fNAF_bg.setOrigin(0, 0);
 
 		// toidSketch
 		const toidSketch = this.add.image(-134, 320, "ToidSketch");
@@ -42,18 +45,31 @@ export default class OfficeScene extends Phaser.Scene {
 		computerPlacement.isFilled = true;
 		computerPlacement.fillColor = 2706669;
 
-		this.fNAF_bg_1 = fNAF_bg_1;
+		// bgCover
+		const bgCover = this.add.rectangle(735, -148, 200, 150);
+		bgCover.setOrigin(0, 0);
+		bgCover.isFilled = true;
+
+		// annoying_guy
+		this.add.image(990, -63, "annoying guy");
+
+		// lists
+		const hiddenObjects = [computerPlacement, cameraBounds];
+
+		this.cameraBounds = cameraBounds;
 		this.fNAF_bg = fNAF_bg;
 		this.toidSketch = toidSketch;
 		this.computerPlacement = computerPlacement;
+		this.hiddenObjects = hiddenObjects;
 
 		this.events.emit("scene-awake");
 	}
 
-	private fNAF_bg_1!: Phaser.GameObjects.Image;
+	private cameraBounds!: Phaser.GameObjects.Rectangle;
 	private fNAF_bg!: Phaser.GameObjects.Image;
 	private toidSketch!: Phaser.GameObjects.Image;
 	private computerPlacement!: Phaser.GameObjects.Rectangle;
+	private hiddenObjects!: Phaser.GameObjects.Rectangle[];
 
 	/* START-USER-CODE */
 
@@ -73,6 +89,8 @@ export default class OfficeScene extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.setupCamera();
+
 		// var set
 		this.computerScene = this.scene.get('computer-scene') as ComputerScene;
 
@@ -81,17 +99,7 @@ export default class OfficeScene extends Phaser.Scene {
 		{
 			this.input.mouse?.requestPointerLock();
 		});
-		this.input.on('pointermove', (pointer: Phaser.Input.Pointer) =>
-		{
-			if (this.input.mouse?.locked)
-			{
-				this.cameras.main.setScroll
-				(
-					this.cameras.main.scrollX + pointer.movementX * 1.5, 
-					this.cameras.main.scrollY + pointer.movementY
-				);
-			}
-		});
+		this.input.on('pointermove', this.pointerMoveHandler, this);
 
 		// toid animate
 		this.toidTween = this.tweens.add({
@@ -102,18 +110,55 @@ export default class OfficeScene extends Phaser.Scene {
 			yoyo: true,
 			y: 150
 		});
-		this.toidSketch.setScrollFactor(1)
-		this.fNAF_bg.setScrollFactor(.9)
-		this.fNAF_bg_1.setScrollFactor(.8) 
+
+		this.hideObjectsInList();
+
 	}
 
 	update()
 	{
+		// update computer scene position
 		this.computerScene.cameras.main.setViewport
 		(
-			this.computerPlacement.x - (this.cameras.main.scrollX * .9), 
-			this.computerPlacement.y - (this.cameras.main.scrollY * .9), 400, 300
+			this.computerPlacement.x - (this.cameras.main.scrollX * 1.0), 
+			this.computerPlacement.y - (this.cameras.main.scrollY * 1.0), 400, 300
 		);
+	}
+
+	/**
+	 * Scrolls the camera
+	 * @param pointer 
+	 */
+	pointerMoveHandler(pointer: Phaser.Input.Pointer)
+	{
+		if (this.input.mouse?.locked)
+		{
+			this.cameras.main.setScroll
+			(
+				this.cameras.main.scrollX + pointer.movementX * 1.5, 
+				this.cameras.main.scrollY + pointer.movementY
+			);
+		}
+	}
+
+	/**
+	 * Sets camera bounds
+	 */
+	setupCamera()
+	{
+		let topLeft = this.cameraBounds.getTopLeft();
+		this.cameras.main.setBounds(topLeft.x!, topLeft.y!, this.cameraBounds.width, this.cameraBounds.height);
+	}
+
+	/**
+	 * Hides everything in the `hiddenObjects` list
+	 */
+	hideObjectsInList()
+	{
+		this.hiddenObjects.forEach((object, index) =>
+		{
+			object.setVisible(false);
+		});
 	}
 
 	/* END-USER-CODE */

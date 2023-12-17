@@ -68,6 +68,8 @@ export default class ComputerScene extends Phaser.Scene {
 
 		// key input
 		this.input.keyboard!.on('keydown', this.keyDownHandler, this);
+
+		this.setNewPhrase();
 	}
 
 	keyDownHandler(event: KeyboardEvent)
@@ -105,6 +107,7 @@ export default class ComputerScene extends Phaser.Scene {
 		event.key === 'n' ||
 		event.key === 'm' ||
 		event.key === ' ')
+		// TODO: accept uppercase letters as lowercase. Currently doesn't work w/ capslock on.
 		{
 			// is other acceptable key
 
@@ -129,7 +132,7 @@ export default class ComputerScene extends Phaser.Scene {
 		this.background.fillColor = this.screenColours.green;
 		this.sound.play('computer-success');
 
-		// update quota
+		// TODO: update necessary classes / variables
 
 		this.time.delayedCall(1000, () =>
 		{

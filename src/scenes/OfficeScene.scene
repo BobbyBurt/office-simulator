@@ -13,17 +13,21 @@
     },
     "displayList": [
         {
-            "type": "Image",
-            "id": "20ef2d43-8349-4834-952c-9dba0a34c71f",
-            "label": "fNAF_bg_1",
+            "type": "Rectangle",
+            "id": "58f77f6c-63c2-4d07-9970-624b8096d382",
+            "label": "cameraBounds",
             "scope": "CLASS",
-            "texture": {
-                "key": "test-background"
-            },
-            "x": 501,
-            "y": -9,
-            "scaleX": 0.7537540760340492,
-            "scaleY": 0.7537540760340492
+            "x": -481,
+            "y": -234,
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillAlpha": 0,
+            "strokeColor": "#00fc3b",
+            "lineWidth": 3,
+            "isStroked": true,
+            "width": 1920,
+            "height": 820
         },
         {
             "type": "Image",
@@ -33,10 +37,10 @@
             "texture": {
                 "key": "test-background"
             },
-            "x": 492,
-            "y": 242,
-            "scaleX": 0.6693064932228694,
-            "scaleY": 0.6693064932228694
+            "x": -482,
+            "y": -372,
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Image",
@@ -64,6 +68,28 @@
             "fillColor": "#294ced",
             "width": 300,
             "height": 225
+        },
+        {
+            "type": "Rectangle",
+            "id": "33412758-8661-488f-9a28-f25bcc5462a2",
+            "label": "bgCover",
+            "x": 735,
+            "y": -148,
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "width": 200,
+            "height": 150
+        },
+        {
+            "type": "Image",
+            "id": "41e30592-1941-4743-83e1-f765b33965af",
+            "label": "annoying_guy",
+            "texture": {
+                "key": "annoying guy"
+            },
+            "x": 990,
+            "y": -63
         }
     ],
     "plainObjects": [],
@@ -72,5 +98,15 @@
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "lists": [
+        {
+            "id": "8a4af593-f3d7-4354-b482-a3833453508c",
+            "label": "hiddenObjects",
+            "objectIds": [
+                "118d0b55-46a6-4fc7-ab5e-a5004b1d4e62",
+                "58f77f6c-63c2-4d07-9970-624b8096d382"
+            ]
+        }
+    ]
 }

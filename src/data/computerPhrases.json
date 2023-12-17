@@ -2,19 +2,32 @@
     "computerPhrases":
     [
         {
-            "phrase": "The quick brown fox jumps over a lazy dog"
+            "phrase": "Any help would be greatly appreciated"
         },
         {
-            "phrase": "thanks for the update shelly"
+            "phrase": "Please CC myself and HR"
         },
         {
-            "phrase": "back to work"
+            "phrase": "Please complete your Online Security course by Friday"
         },
         {
             "phrase": "stocks are up"
         },
         {
-            "phrase": "ill get you meddling kids"
+            "phrase": "I hope this email finds you well"
+        },
+        {
+            "phrase": "Don't forget to RSVP for the office holiday party"
+        },
+        {
+            "phrase": "Please sign the updated workplace harassment policy"
+        },
+        {
+            "phrase": "All the best"
+        },
+        {
+            "phrase": "To whom it may concern"
         }
+
     ]
 }
