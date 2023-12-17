@@ -91,7 +91,7 @@ export class newgroundsIOWrapper
                     console.log("user needs to log in");
                     newgroundsIOWrapper.status = 'STATUS_LOGIN_REQUIRED';
                     // return `STATUS_LOGIN_REQUIRED`;
-                    // NGIO.openLoginPage();
+                    NGIO.openLoginPage();
     
   
                     break;

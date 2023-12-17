@@ -22,30 +22,30 @@ export default class OfficeScene extends Phaser.Scene {
 	editorCreate(): void {
 
 		// fNAF_bg_1
-		const fNAF_bg_1 = this.add.image(501, -163, "FNAF-bg");
-		fNAF_bg_1.scaleX = 0.4633747718556862;
-		fNAF_bg_1.scaleY = 0.4633747718556862;
+		const fNAF_bg_1 = this.add.image(501, -9, "test-background");
+		fNAF_bg_1.scaleX = 0.7537540760340492;
+		fNAF_bg_1.scaleY = 0.7537540760340492;
 
 		// fNAF_bg
-		const fNAF_bg = this.add.image(492, 88, "FNAF-bg");
-		fNAF_bg.scaleX = 0.37892719712943057;
-		fNAF_bg.scaleY = 0.37892719712943057;
+		const fNAF_bg = this.add.image(492, 242, "test-background");
+		fNAF_bg.scaleX = 0.6693064932228694;
+		fNAF_bg.scaleY = 0.6693064932228694;
 
 		// toidSketch
 		const toidSketch = this.add.image(-134, 320, "ToidSketch");
 		toidSketch.scaleX = 1.104608767712672;
 		toidSketch.scaleY = 1.104608767712672;
 
-		// bitmaptext_1
-		const bitmaptext_1 = this.add.bitmapText(490, 259, "nokia_1", "The quick brown fox jumps over a lazy dog");
-		bitmaptext_1.text = "The quick brown fox jumps over a lazy dog";
-		bitmaptext_1.fontSize = -16;
-		bitmaptext_1.maxWidth = 200;
-		bitmaptext_1.dropShadowAlpha = 0;
+		// computerPlacement
+		const computerPlacement = this.add.rectangle(295, 138, 300, 225);
+		computerPlacement.setOrigin(0, 0);
+		computerPlacement.isFilled = true;
+		computerPlacement.fillColor = 2706669;
 
 		this.fNAF_bg_1 = fNAF_bg_1;
 		this.fNAF_bg = fNAF_bg;
 		this.toidSketch = toidSketch;
+		this.computerPlacement = computerPlacement;
 
 		this.events.emit("scene-awake");
 	}
@@ -53,6 +53,7 @@ export default class OfficeScene extends Phaser.Scene {
 	private fNAF_bg_1!: Phaser.GameObjects.Image;
 	private fNAF_bg!: Phaser.GameObjects.Image;
 	private toidSketch!: Phaser.GameObjects.Image;
+	private computerPlacement!: Phaser.GameObjects.Rectangle;
 
 	/* START-USER-CODE */
 
@@ -84,7 +85,11 @@ export default class OfficeScene extends Phaser.Scene {
 		{
 			if (this.input.mouse?.locked)
 			{
-				this.cameras.main.setScroll(this.cameras.main.scrollX + pointer.movementX * 1.5, this.cameras.main.scrollY + pointer.movementY);
+				this.cameras.main.setScroll
+				(
+					this.cameras.main.scrollX + pointer.movementX * 1.5, 
+					this.cameras.main.scrollY + pointer.movementY
+				);
 			}
 		});
 
@@ -104,7 +109,11 @@ export default class OfficeScene extends Phaser.Scene {
 
 	update()
 	{
-		this.computerScene.cameras.main.setViewport(-this.cameras.main.scrollX * .9, -this.cameras.main.scrollY * .9, 400, 300);
+		this.computerScene.cameras.main.setViewport
+		(
+			this.computerPlacement.x - (this.cameras.main.scrollX * .9), 
+			this.computerPlacement.y - (this.cameras.main.scrollY * .9), 400, 300
+		);
 	}
 
 	/* END-USER-CODE */

@@ -8,43 +8,50 @@
         "createMethodName": "editorCreate",
         "sceneKey": "computer-scene",
         "compilerOutputLanguage": "TYPE_SCRIPT",
-        "borderWidth": 200,
-        "borderHeight": 150
+        "borderWidth": 300,
+        "borderHeight": 225
     },
     "displayList": [
         {
             "type": "Rectangle",
             "id": "7d1e24d4-5a32-458d-b46b-22c7803f612c",
-            "label": "rectangle_1",
+            "label": "background",
+            "scope": "CLASS",
             "originX": 0,
             "originY": 0,
             "isFilled": true,
             "fillColor": "#003cec",
-            "width": 400,
-            "height": 300
+            "width": 300,
+            "height": 225
         },
         {
             "type": "Text",
             "id": "6a92d7fb-8f9c-41aa-a59a-ba36d523763f",
             "label": "instructedPhrase",
             "scope": "CLASS",
-            "x": 40,
-            "y": 86,
-            "text": "The quick brown fox jumps over a lazy dog",
-            "fontSize": "22px",
+            "x": 23,
+            "y": 48,
+            "alpha": 0.8,
+            "alphaTopLeft": 0.8,
+            "alphaTopRight": 0.8,
+            "alphaBottomLeft": 0.8,
+            "alphaBottomRight": 0.8,
+            "text": "ill get you meddling kids",
+            "fontSize": "20px",
             "fontStyle": "bold",
-            "wordWrapWidth": 350
+            "color": "#ffffffff",
+            "wordWrapWidth": 270
         },
         {
             "type": "Text",
             "id": "523ce36d-13fb-4e2f-8e24-ac3e6854515e",
             "label": "inputPhrase",
             "scope": "CLASS",
-            "x": 40,
-            "y": 167,
-            "fontSize": "22px",
+            "x": 23,
+            "y": 129,
+            "fontSize": "20px",
             "fontStyle": "bold",
-            "wordWrapWidth": 300,
+            "wordWrapWidth": 270,
             "wordWrapUseAdvanced": true
         }
     ],

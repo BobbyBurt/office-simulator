@@ -18,12 +18,12 @@
             "label": "fNAF_bg_1",
             "scope": "CLASS",
             "texture": {
-                "key": "FNAF-bg"
+                "key": "test-background"
             },
             "x": 501,
-            "y": -163,
-            "scaleX": 0.4633747718556862,
-            "scaleY": 0.4633747718556862
+            "y": -9,
+            "scaleX": 0.7537540760340492,
+            "scaleY": 0.7537540760340492
         },
         {
             "type": "Image",
@@ -31,12 +31,12 @@
             "label": "fNAF_bg",
             "scope": "CLASS",
             "texture": {
-                "key": "FNAF-bg"
+                "key": "test-background"
             },
             "x": 492,
-            "y": 88,
-            "scaleX": 0.37892719712943057,
-            "scaleY": 0.37892719712943057
+            "y": 242,
+            "scaleX": 0.6693064932228694,
+            "scaleY": 0.6693064932228694
         },
         {
             "type": "Image",
@@ -52,16 +52,18 @@
             "scaleY": 1.104608767712672
         },
         {
-            "type": "BitmapText",
-            "id": "3f4fc828-dae7-46a3-9336-eb4dc873a49a",
-            "label": "bitmaptext_1",
-            "x": 490,
-            "y": 259,
-            "text": "The quick brown fox jumps over a lazy dog",
-            "font": "nokia_1",
-            "fontSize": -16,
-            "maxWidth": 200,
-            "dropShadowAlpha": 0
+            "type": "Rectangle",
+            "id": "118d0b55-46a6-4fc7-ab5e-a5004b1d4e62",
+            "label": "computerPlacement",
+            "scope": "CLASS",
+            "x": 295,
+            "y": 138,
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#294ced",
+            "width": 300,
+            "height": 225
         }
     ],
     "plainObjects": [],

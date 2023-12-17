@@ -2,7 +2,14 @@
     "section1": {
         "files": [
             {
-                "url": "assets/FNAF-bg.jpg",
+                "url": [
+                    "assets/sfx/RCT2ClickOut.wav"
+                ],
+                "type": "audio",
+                "key": "computer-success"
+            },
+            {
+                "url": "assets/images/FNAF-bg.jpg",
                 "type": "image",
                 "key": "FNAF-bg"
             },
@@ -18,12 +25,12 @@
                 "key": "nokia_1"
             },
             {
-                "url": "assets/QR.png",
+                "url": "assets/images/test-background.png",
                 "type": "image",
-                "key": "QR"
+                "key": "test-background"
             },
             {
-                "url": "assets/ToidSketch.png",
+                "url": "assets/images/ToidSketch.png",
                 "type": "image",
                 "key": "ToidSketch"
             }
