@@ -2,6 +2,7 @@ import cloudSaves from './API/SavesData';
 import medalScene from './API/medalScene';
 import { newgroundsIOWrapper } from './API/newgroundsIOWrapper';
 import ComputerScene from './scenes/ComputerScene';
+import GameboyScene from './scenes/GameboyScene';
 import OfficeScene from './scenes/OfficeScene';
 import Preload from './scenes/Preload';
 
@@ -32,6 +33,7 @@ window.addEventListener('load', function ()
 	game.scene.add('medal-scene', medalScene);
 	game.scene.add('office-scene', OfficeScene);
 	game.scene.add('computer-scene', ComputerScene);
+	game.scene.add('gameboy-scene', GameboyScene);
 });
 
 class Boot extends Phaser.Scene

@@ -14,7 +14,7 @@ export default class ComputerScene extends Phaser.Scene {
 		super("computer-scene");
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
+		
 		/* END-USER-CTR-CODE */
 	}
 
@@ -62,6 +62,9 @@ export default class ComputerScene extends Phaser.Scene {
 		red: 0xec0000
 	}
 
+	/** True during complete sequences / between phrases */
+	private lockInput = false;
+
 	create() {
 
 		this.editorCreate();
@@ -74,6 +77,9 @@ export default class ComputerScene extends Phaser.Scene {
 
 	keyDownHandler(event: KeyboardEvent)
 	{
+		if (this.lockInput)
+			return;
+		
 		if (event.key === 'Backspace' && this.inputPhrase.text.length > 0)
 		{
 			// is backspace
@@ -115,7 +121,7 @@ export default class ComputerScene extends Phaser.Scene {
 			this.inputPhrase.runWordWrap(this.inputPhrase.text);
 		}
 
-		if (this.inputPhrase.text === this.instructedPhrase.text)
+		if (this.inputPhrase.text === this.instructedPhrase.text && !this.lockInput)
 		{
 			// input & instructed strings match
 
@@ -128,6 +134,8 @@ export default class ComputerScene extends Phaser.Scene {
 	 */
 	phraseCompleteSequence()
 	{
+		this.lockInput = true;
+		
 		// AV feedback
 		this.background.fillColor = this.screenColours.green;
 		this.sound.play('computer-success');
@@ -141,6 +149,9 @@ export default class ComputerScene extends Phaser.Scene {
 			this.background.fillColor = this.screenColours.blue;
 
 			this.setNewPhrase();
+
+			this.lockInput = false;
+
 		});
 
 	}
@@ -157,60 +168,6 @@ export default class ComputerScene extends Phaser.Scene {
 		// set texts
 		this.instructedPhrase.setText(phrase);
 		this.inputPhrase.setText('');
-	}
-
-	/**
-	 * Load medal data from PPP
-	 */
-	NGioExternalTest()
-	{
-		// create the component, and pass in an external App ID
-		var component = new NewgroundsIO.components.Medal.getList({
-			app_id: '55003:7XXBXFge', // in "12345:UvWXyZ" format
-			id: '70087'
-		});
-
-		// execute the component on the server
-		NGIO.ngioCore.executeComponent(component, onExternalMedalsLoaded);
-
-		// serverResponse will be a NewgroundsIO.objects.Response instance
-		function onExternalMedalsLoaded(serverResponse: any)
-		{
-			if (serverResponse.success) {
-
-				// result will be an instance of NewgroundsIO.results.Medal.getList
-				var result = serverResponse.result;
-
-				if (result.success) {
-
-					result.medals.forEach(function (medal: any) {
-						// medal is an instance of NewgroundsIO.objects.Medal
-
-						/**
-						 * You can get medal information like so:
-						 *   medal.id
-						 *   medal.name
-						 *   medal.description
-						 *   medal.value
-						 *   medal.icon  (note, these are usually .webp files, and may not work in all frameworks)
-						 */
-						console.debug(medal);
-						console.debug(medal.unlocked);
-					});
-
-					// You can get the app id that was used with result.app_id
-
-				} else {
-					// the component failed
-					console.error(result.error.message);
-				}
-
-			} else {
-
-				// something went wrong
-				console.error(serverResponse.error.message);
-			}
-		}
 	}
 
 	/* END-USER-CODE */

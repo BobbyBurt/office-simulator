@@ -1,0 +1,58 @@
+{
+    "id": "e7af55a6-8fb1-468c-80de-3f15f81d082f",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "gameboy-scene",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 200,
+        "borderHeight": 150
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "5ccb86a0-8bf1-4720-9954-9e206c32cd97",
+            "label": "background",
+            "scope": "CLASS",
+            "components": [],
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#f06d6d",
+            "width": 200,
+            "height": 150
+        },
+        {
+            "type": "Text",
+            "id": "28333af5-5ca1-44b7-be6e-df0fe872a93d",
+            "label": "instructedPhrase",
+            "scope": "CLASS",
+            "components": [],
+            "x": 100,
+            "y": 73,
+            "originX": 0.5,
+            "originY": 0.5,
+            "alpha": 0.8,
+            "alphaTopLeft": 0.8,
+            "alphaTopRight": 0.8,
+            "alphaBottomLeft": 0.8,
+            "alphaBottomRight": 0.8,
+            "text": "MASH UP,\nL & R ARROWS\n\nUSE DOWN \nARROW TO HIDE",
+            "align": "center",
+            "fontSize": "20px",
+            "fontStyle": "bold",
+            "color": "#ffffffff",
+            "wordWrapWidth": 270
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

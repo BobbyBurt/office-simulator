@@ -30,6 +30,13 @@
                 "key": "nokia_1"
             },
             {
+                "url": [
+                    "assets/music/SMB Hot Damned RETRO (Ch 4 Warp Zone) edit.mp3"
+                ],
+                "type": "audio",
+                "key": "gameboy-music"
+            },
+            {
                 "url": "assets/images/test-background.png",
                 "type": "image",
                 "key": "test-background"

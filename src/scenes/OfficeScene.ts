@@ -4,8 +4,10 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import AnnoyingGuyPrefab from "../prefabs/AnnoyingGuyPrefab";
 /* START-USER-IMPORTS */
 import ComputerScene from "./ComputerScene";
+import GameboyScene from "./GameboyScene";
 
 /* END-USER-IMPORTS */
 
@@ -15,7 +17,7 @@ export default class OfficeScene extends Phaser.Scene {
 		super("office-scene");
 
 		/* START-USER-CTR-CODE */
-		// Write your code here.
+
 		/* END-USER-CTR-CODE */
 	}
 
@@ -50,16 +52,44 @@ export default class OfficeScene extends Phaser.Scene {
 		bgCover.setOrigin(0, 0);
 		bgCover.isFilled = true;
 
-		// annoying_guy
-		this.add.image(990, -63, "annoying guy");
+		// annoyingGuy
+		const annoyingGuy = new AnnoyingGuyPrefab(this, 812, -157);
+		this.add.existing(annoyingGuy);
+
+		// reticle
+		const reticle = this.add.rectangle(480, 240, 8, 2);
+		reticle.isFilled = true;
+		reticle.fillColor = 4276545;
+
+		// reticle_1
+		const reticle_1 = this.add.rectangle(480, 240, 2, 8);
+		reticle_1.isFilled = true;
+		reticle_1.fillColor = 4276545;
+
+		// gameoverText
+		const gameoverText = this.add.text(480, 240, "", {});
+		gameoverText.setOrigin(0.5, 0.5);
+		gameoverText.visible = false;
+		gameoverText.text = "Game Over";
+		gameoverText.setStyle({ "align": "center", "color": "#323232ff", "fontSize": "64px", "fontStyle": "bold" });
+
+		// gameboyPlacement
+		const gameboyPlacement = this.add.rectangle(719, 360, 200, 150);
+		gameboyPlacement.setOrigin(0, 0);
+		gameboyPlacement.isFilled = true;
+		gameboyPlacement.fillColor = 12150776;
 
 		// lists
-		const hiddenObjects = [computerPlacement, cameraBounds];
+		const hiddenObjects = [computerPlacement, cameraBounds, gameboyPlacement];
 
 		this.cameraBounds = cameraBounds;
 		this.fNAF_bg = fNAF_bg;
 		this.toidSketch = toidSketch;
 		this.computerPlacement = computerPlacement;
+		this.reticle = reticle;
+		this.reticle_1 = reticle_1;
+		this.gameoverText = gameoverText;
+		this.gameboyPlacement = gameboyPlacement;
 		this.hiddenObjects = hiddenObjects;
 
 		this.events.emit("scene-awake");
@@ -69,6 +99,10 @@ export default class OfficeScene extends Phaser.Scene {
 	private fNAF_bg!: Phaser.GameObjects.Image;
 	private toidSketch!: Phaser.GameObjects.Image;
 	private computerPlacement!: Phaser.GameObjects.Rectangle;
+	public reticle!: Phaser.GameObjects.Rectangle;
+	private reticle_1!: Phaser.GameObjects.Rectangle;
+	private gameoverText!: Phaser.GameObjects.Text;
+	private gameboyPlacement!: Phaser.GameObjects.Rectangle;
 	private hiddenObjects!: Phaser.GameObjects.Rectangle[];
 
 	/* START-USER-CODE */
@@ -77,7 +111,9 @@ export default class OfficeScene extends Phaser.Scene {
 
 	private toidTween: Phaser.Tweens.Tween;
 
-	private computerScene: Phaser.Scene;
+	// secondary scenes
+	private computerScene: ComputerScene;
+	private gameboyScene: GameboyScene;
 
 
 	preload()
@@ -85,19 +121,22 @@ export default class OfficeScene extends Phaser.Scene {
 		console.debug('hey this does preload right');
 	}
 
-	create() {
-
+	create()
+	{
 		this.editorCreate();
 
 		this.setupCamera();
 
-		// var set
+		// secondary scene set
 		this.computerScene = this.scene.get('computer-scene') as ComputerScene;
+		this.gameboyScene = this.scene.get('gameboy-scene') as GameboyScene;
 
 		// pointer input
-		this.input.on('pointerdown', () =>
+		this.input.on('pointerdown', (event: any) =>
 		{
 			this.input.mouse?.requestPointerLock();
+
+			console.debug(event);
 		});
 		this.input.on('pointermove', this.pointerMoveHandler, this);
 
@@ -113,15 +152,34 @@ export default class OfficeScene extends Phaser.Scene {
 
 		this.hideObjectsInList();
 
+		// setup reticle
+		this.reticle.setScrollFactor(0);
+		this.reticle_1.setScrollFactor(0);
 	}
 
 	update()
 	{
-		// update computer scene position
+		this.updateSceneViewports();
+	}
+	
+	/**
+	 * Update the secondary scene viewport screen position based on camera scroll.
+	*/
+	updateSceneViewports()
+	{
 		this.computerScene.cameras.main.setViewport
 		(
 			this.computerPlacement.x - (this.cameras.main.scrollX * 1.0), 
-			this.computerPlacement.y - (this.cameras.main.scrollY * 1.0), 400, 300
+			this.computerPlacement.y - (this.cameras.main.scrollY * 1.0), 
+			this.computerPlacement.width, 
+			this.computerPlacement.height
+		);
+		this.gameboyScene.cameras.main.setViewport
+		(
+			this.gameboyPlacement.x - (this.cameras.main.scrollX * 1.0), 
+			this.gameboyPlacement.y - (this.cameras.main.scrollY * 1.0), 
+			this.gameboyPlacement.width,
+			this.gameboyPlacement.height
 		);
 	}
 
@@ -159,6 +217,19 @@ export default class OfficeScene extends Phaser.Scene {
 		{
 			object.setVisible(false);
 		});
+	}
+
+	/**
+	 * returns whatever interactive object is in the center of the screen.
+	 */
+	reticleOverlapping()
+	{
+
+	}
+
+	public gameOver()
+	{
+		this.gameoverText.setVisible(true);
 	}
 
 	/* END-USER-CODE */

@@ -17,6 +17,7 @@
             "id": "58f77f6c-63c2-4d07-9970-624b8096d382",
             "label": "cameraBounds",
             "scope": "CLASS",
+            "components": [],
             "x": -481,
             "y": -234,
             "originX": 0,
@@ -34,6 +35,7 @@
             "id": "81bdd914-4abd-4ea4-a03d-98062022b5e7",
             "label": "fNAF_bg",
             "scope": "CLASS",
+            "components": [],
             "texture": {
                 "key": "test-background"
             },
@@ -47,6 +49,7 @@
             "id": "1c327fc4-beb7-44b6-9426-04dae1c4116c",
             "label": "toidSketch",
             "scope": "CLASS",
+            "components": [],
             "texture": {
                 "key": "ToidSketch"
             },
@@ -60,6 +63,7 @@
             "id": "118d0b55-46a6-4fc7-ab5e-a5004b1d4e62",
             "label": "computerPlacement",
             "scope": "CLASS",
+            "components": [],
             "x": 295,
             "y": 138,
             "originX": 0,
@@ -73,6 +77,7 @@
             "type": "Rectangle",
             "id": "33412758-8661-488f-9a28-f25bcc5462a2",
             "label": "bgCover",
+            "components": [],
             "x": 735,
             "y": -148,
             "originX": 0,
@@ -82,14 +87,74 @@
             "height": 150
         },
         {
-            "type": "Image",
+            "prefabId": "7fe7a3a8-abe2-42d2-beb2-e20ecf7bff2a",
             "id": "41e30592-1941-4743-83e1-f765b33965af",
-            "label": "annoying_guy",
-            "texture": {
-                "key": "annoying guy"
-            },
-            "x": 990,
-            "y": -63
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "annoyingGuy",
+            "components": [],
+            "x": 812,
+            "y": -157
+        },
+        {
+            "type": "Rectangle",
+            "id": "c7097fbd-9980-498e-a8b7-2ef17e44eae6",
+            "label": "reticle",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 480,
+            "y": 240,
+            "isFilled": true,
+            "fillColor": "#414141",
+            "width": 8,
+            "height": 2
+        },
+        {
+            "type": "Rectangle",
+            "id": "a18afdea-2297-4d20-a01f-afcc75a73160",
+            "label": "reticle_1",
+            "scope": "CLASS",
+            "components": [],
+            "x": 480,
+            "y": 240,
+            "isFilled": true,
+            "fillColor": "#414141",
+            "width": 2,
+            "height": 8
+        },
+        {
+            "type": "Text",
+            "id": "165f2bb3-6ba7-4bd9-b935-09676b58b2ef",
+            "label": "gameoverText",
+            "scope": "CLASS",
+            "components": [],
+            "x": 480,
+            "y": 240,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "Game Over",
+            "align": "center",
+            "fontSize": "64px",
+            "fontStyle": "bold",
+            "color": "#323232ff"
+        },
+        {
+            "type": "Rectangle",
+            "id": "1915ed38-1636-4845-ace6-ee45c0a30d3d",
+            "label": "gameboyPlacement",
+            "scope": "CLASS",
+            "components": [],
+            "x": 719,
+            "y": 360,
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#b967f8",
+            "width": 200,
+            "height": 150
         }
     ],
     "plainObjects": [],
@@ -97,7 +162,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 5
+        "version": 3
     },
     "lists": [
         {
@@ -105,7 +170,8 @@
             "label": "hiddenObjects",
             "objectIds": [
                 "118d0b55-46a6-4fc7-ab5e-a5004b1d4e62",
-                "58f77f6c-63c2-4d07-9970-624b8096d382"
+                "58f77f6c-63c2-4d07-9970-624b8096d382",
+                "1915ed38-1636-4845-ace6-ee45c0a30d3d"
             ]
         }
     ]
