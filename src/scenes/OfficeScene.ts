@@ -8,6 +8,7 @@ import AnnoyingGuyPrefab from "../prefabs/AnnoyingGuyPrefab";
 /* START-USER-IMPORTS */
 import ComputerScene from "./ComputerScene";
 import GameboyScene from "./GameboyScene";
+import PostFX from "../FX/PostFX";
 
 /* END-USER-IMPORTS */
 
@@ -110,6 +111,7 @@ export default class OfficeScene extends Phaser.Scene {
 	private plane1: Phaser.GameObjects.Plane;
 
 	private toidTween: Phaser.Tweens.Tween;
+	private epic = 3;
 
 	// secondary scenes
 	private computerScene: ComputerScene;
@@ -155,6 +157,9 @@ export default class OfficeScene extends Phaser.Scene {
 		// setup reticle
 		this.reticle.setScrollFactor(0);
 		this.reticle_1.setScrollFactor(0);
+
+		// test
+		this.plane1 = this.add.plane(10, 10, '');
 	}
 
 	update()

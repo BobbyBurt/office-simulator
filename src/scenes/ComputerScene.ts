@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { computerPhrases } from 'data/computerPhrases.json'
+import PostFX from "../FX/PostFX";
 /* END-USER-IMPORTS */
 
 export default class ComputerScene extends Phaser.Scene {

@@ -1,0 +1,78 @@
+{
+    "id": "35fe5d95-c604-4d17-b299-65f73fe1720b",
+    "sceneType": "PREFAB",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 0,
+        "borderHeight": 0
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "1c9bea0d-65c4-475b-977e-fa0b07d9eb95",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Text",
+                    "id": "2cc3419f-3d91-4de7-be06-2362d04036dc",
+                    "label": "text",
+                    "scope": "CLASS",
+                    "text": "Boredom",
+                    "fontSize": "22px"
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "a9d52e70-9f07-473c-a8be-3f34fd718f6f",
+                    "label": "barOutline",
+                    "scope": "CLASS",
+                    "x": 103,
+                    "y": 3,
+                    "originX": 0,
+                    "originY": 0,
+                    "lineWidth": 2,
+                    "isStroked": true,
+                    "width": 128,
+                    "height": 15
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "cc287729-60e9-4c5a-b5d9-903d9778c02c",
+                    "label": "barFill",
+                    "scope": "CLASS",
+                    "x": 103,
+                    "y": 3,
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "lineWidth": 2,
+                    "width": 128,
+                    "height": 15
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "colour",
+            "label": "Colour",
+            "tooltip": "",
+            "defValue": "#000000ff",
+            "customDefinition": false,
+            "type": {
+                "id": "color"
+            }
+        }
+    ]
+}

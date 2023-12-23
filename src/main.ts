@@ -5,6 +5,8 @@ import ComputerScene from './scenes/ComputerScene';
 import GameboyScene from './scenes/GameboyScene';
 import OfficeScene from './scenes/OfficeScene';
 import Preload from './scenes/Preload';
+import PostFX from './FX/PostFX.js';
+import UIScene from './scenes/UIScene';
 
 
 window.addEventListener('load', function ()
@@ -25,7 +27,8 @@ window.addEventListener('load', function ()
 			autoCenter: Phaser.Scale.CENTER_BOTH,
 			width: 960,
 			height: 540
-		}
+		},
+		// pipeline: { PostFX }
 	});
 	
 	game.scene.add("Preload", Preload);
@@ -34,6 +37,7 @@ window.addEventListener('load', function ()
 	game.scene.add('office-scene', OfficeScene);
 	game.scene.add('computer-scene', ComputerScene);
 	game.scene.add('gameboy-scene', GameboyScene);
+	game.scene.add('ui-scene', UIScene);
 });
 
 class Boot extends Phaser.Scene

@@ -54,6 +54,7 @@ export default class Preload extends Phaser.Scene {
 		this.scene.launch("computer-scene");
 		this.scene.launch("gameboy-scene");
 		this.scene.launch("office-scene");
+		this.scene.launch("ui-scene");
 	}
 
 	/* END-USER-CODE */
