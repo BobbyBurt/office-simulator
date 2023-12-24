@@ -22,36 +22,39 @@
                     "id": "2cc3419f-3d91-4de7-be06-2362d04036dc",
                     "label": "text",
                     "scope": "CLASS",
-                    "text": "Boredom",
-                    "fontSize": "22px"
+                    "text": "Fun",
+                    "fontSize": "28px",
+                    "fontStyle": "bold",
+                    "color": "#2c2c2cff",
+                    "strokeThickness": 6
                 },
                 {
                     "type": "Rectangle",
                     "id": "a9d52e70-9f07-473c-a8be-3f34fd718f6f",
                     "label": "barOutline",
                     "scope": "CLASS",
-                    "x": 103,
+                    "x": 153,
                     "y": 3,
                     "originX": 0,
                     "originY": 0,
-                    "lineWidth": 2,
+                    "lineWidth": 4,
                     "isStroked": true,
                     "width": 128,
-                    "height": 15
+                    "height": 23
                 },
                 {
                     "type": "Rectangle",
                     "id": "cc287729-60e9-4c5a-b5d9-903d9778c02c",
                     "label": "barFill",
                     "scope": "CLASS",
-                    "x": 103,
+                    "x": 153,
                     "y": 3,
                     "originX": 0,
                     "originY": 0,
                     "isFilled": true,
                     "lineWidth": 2,
                     "width": 128,
-                    "height": 15
+                    "height": 23
                 }
             ]
         }
@@ -65,13 +68,33 @@
     },
     "prefabProperties": [
         {
-            "name": "colour",
-            "label": "Colour",
+            "name": "fillColour",
+            "label": "Fill Colour",
             "tooltip": "",
             "defValue": "#000000ff",
             "customDefinition": false,
             "type": {
                 "id": "color"
+            }
+        },
+        {
+            "name": "outlineColour",
+            "label": "Outline Colour",
+            "tooltip": "",
+            "defValue": "#ffffff",
+            "customDefinition": false,
+            "type": {
+                "id": "color"
+            }
+        },
+        {
+            "name": "barWidth",
+            "label": "Bar Width",
+            "tooltip": "",
+            "defValue": 120,
+            "customDefinition": false,
+            "type": {
+                "id": "number"
             }
         }
     ]

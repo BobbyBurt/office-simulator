@@ -18,12 +18,42 @@
             "unlock": [
                 "x",
                 "y",
-                "colour"
+                "colour",
+                "outlineColour",
+                "fillColour",
+                "barWidth"
             ],
             "label": "uIMeter",
-            "colour": "#d75050ff",
-            "x": 20,
+            "scope": "CLASS",
+            "fillColour": "#373737ff",
+            "outlineColour": "#ffffffff",
+            "barWidth": 300,
+            "x": 17,
             "y": 18
+        },
+        {
+            "type": "Rectangle",
+            "id": "93b6dbb2-1c35-4684-b87e-313924238d32",
+            "label": "reticle_1",
+            "scope": "CLASS",
+            "x": 480,
+            "y": 270,
+            "isFilled": true,
+            "fillColor": "#414141",
+            "width": 2,
+            "height": 8
+        },
+        {
+            "type": "Rectangle",
+            "id": "0b0052a3-d2a9-4679-b532-99f3278ed30e",
+            "label": "reticle",
+            "scope": "PUBLIC",
+            "x": 480,
+            "y": 270,
+            "isFilled": true,
+            "fillColor": "#414141",
+            "width": 8,
+            "height": 2
         }
     ],
     "plainObjects": [],

@@ -57,16 +57,6 @@ export default class OfficeScene extends Phaser.Scene {
 		const annoyingGuy = new AnnoyingGuyPrefab(this, 812, -157);
 		this.add.existing(annoyingGuy);
 
-		// reticle
-		const reticle = this.add.rectangle(480, 240, 8, 2);
-		reticle.isFilled = true;
-		reticle.fillColor = 4276545;
-
-		// reticle_1
-		const reticle_1 = this.add.rectangle(480, 240, 2, 8);
-		reticle_1.isFilled = true;
-		reticle_1.fillColor = 4276545;
-
 		// gameoverText
 		const gameoverText = this.add.text(480, 240, "", {});
 		gameoverText.setOrigin(0.5, 0.5);
@@ -87,8 +77,6 @@ export default class OfficeScene extends Phaser.Scene {
 		this.fNAF_bg = fNAF_bg;
 		this.toidSketch = toidSketch;
 		this.computerPlacement = computerPlacement;
-		this.reticle = reticle;
-		this.reticle_1 = reticle_1;
 		this.gameoverText = gameoverText;
 		this.gameboyPlacement = gameboyPlacement;
 		this.hiddenObjects = hiddenObjects;
@@ -100,8 +88,6 @@ export default class OfficeScene extends Phaser.Scene {
 	private fNAF_bg!: Phaser.GameObjects.Image;
 	private toidSketch!: Phaser.GameObjects.Image;
 	private computerPlacement!: Phaser.GameObjects.Rectangle;
-	public reticle!: Phaser.GameObjects.Rectangle;
-	private reticle_1!: Phaser.GameObjects.Rectangle;
 	private gameoverText!: Phaser.GameObjects.Text;
 	private gameboyPlacement!: Phaser.GameObjects.Rectangle;
 	private hiddenObjects!: Phaser.GameObjects.Rectangle[];
@@ -154,10 +140,6 @@ export default class OfficeScene extends Phaser.Scene {
 
 		this.hideObjectsInList();
 
-		// setup reticle
-		this.reticle.setScrollFactor(0);
-		this.reticle_1.setScrollFactor(0);
-
 		// test
 		this.plane1 = this.add.plane(10, 10, '');
 	}
@@ -166,7 +148,7 @@ export default class OfficeScene extends Phaser.Scene {
 	{
 		this.updateSceneViewports();
 	}
-	
+
 	/**
 	 * Update the secondary scene viewport screen position based on camera scroll.
 	*/

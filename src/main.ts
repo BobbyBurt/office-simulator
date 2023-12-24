@@ -28,6 +28,10 @@ window.addEventListener('load', function ()
 			width: 960,
 			height: 540
 		},
+		// fps: {
+		// 	target: 15,
+		// 	forceSetTimeOut: true
+		// 	}
 		// pipeline: { PostFX }
 	});
 	
