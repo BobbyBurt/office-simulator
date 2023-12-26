@@ -5,6 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import UIScene from "~/scenes/UIScene";
 /* END-USER-IMPORTS */
 
 export default class UIMeter extends Phaser.GameObjects.Container {
@@ -43,6 +44,8 @@ export default class UIMeter extends Phaser.GameObjects.Container {
 
 		this.SetBarX();
 
+		this.uiScene = this.scene as UIScene;
+
 		/* END-USER-CTR-CODE */
 	}
 
@@ -72,7 +75,10 @@ export default class UIMeter extends Phaser.GameObjects.Container {
 	/**
 	 * per frame
 	 */
-	public valueChange = -.005;
+	public valueChange = -.003;
+
+	// references
+	private uiScene: UIScene;
 
 	/**
 	 * For callback on first update. Properties are set after the prefab is constructed, so they can't 
@@ -89,6 +95,13 @@ export default class UIMeter extends Phaser.GameObjects.Container {
 		// update value
 		this.value += this.valueChange * delta;
 		this.value = Phaser.Math.Clamp(this.value, 0, 100);
+
+		if (this.value === 0)
+		{
+			// TODO: check that the gameover state isn't already true.
+
+			this.uiScene.setGameOverText(true, `You fell asleep on the job!`);
+		}
 
 		this.updateBar();
 	}

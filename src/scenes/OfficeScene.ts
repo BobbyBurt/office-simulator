@@ -25,7 +25,7 @@ export default class OfficeScene extends Phaser.Scene {
 	editorCreate(): void {
 
 		// cameraBounds
-		const cameraBounds = this.add.rectangle(-481, -234, 1920, 820);
+		const cameraBounds = this.add.rectangle(-481, -300, 1920, 885);
 		cameraBounds.setOrigin(0, 0);
 		cameraBounds.isFilled = true;
 		cameraBounds.fillAlpha = 0;
@@ -38,7 +38,7 @@ export default class OfficeScene extends Phaser.Scene {
 		fNAF_bg.setOrigin(0, 0);
 
 		// toidSketch
-		const toidSketch = this.add.image(-134, 320, "ToidSketch");
+		const toidSketch = this.add.image(-216, 320, "ToidSketch");
 		toidSketch.scaleX = 1.104608767712672;
 		toidSketch.scaleY = 1.104608767712672;
 
@@ -70,6 +70,11 @@ export default class OfficeScene extends Phaser.Scene {
 		gameboyPlacement.isFilled = true;
 		gameboyPlacement.fillColor = 12150776;
 
+		// rectangle_1
+		const rectangle_1 = this.add.rectangle(-481, -300, 1920, 70);
+		rectangle_1.setOrigin(0, 0);
+		rectangle_1.isFilled = true;
+
 		// lists
 		const hiddenObjects = [computerPlacement, cameraBounds, gameboyPlacement];
 
@@ -97,7 +102,6 @@ export default class OfficeScene extends Phaser.Scene {
 	private plane1: Phaser.GameObjects.Plane;
 
 	private toidTween: Phaser.Tweens.Tween;
-	private epic = 3;
 
 	// secondary scenes
 	private computerScene: ComputerScene;
@@ -106,7 +110,6 @@ export default class OfficeScene extends Phaser.Scene {
 
 	preload()
 	{
-		console.debug('hey this does preload right');
 	}
 
 	create()
@@ -118,6 +121,9 @@ export default class OfficeScene extends Phaser.Scene {
 		// secondary scene set
 		this.computerScene = this.scene.get('computer-scene') as ComputerScene;
 		this.gameboyScene = this.scene.get('gameboy-scene') as GameboyScene;
+
+		// audio
+		this.sound.play('ambience', { loop: true, volume: .5 });
 
 		// pointer input
 		this.input.on('pointerdown', (event: any) =>

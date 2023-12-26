@@ -8,7 +8,14 @@
             },
             {
                 "url": [
-                    "assets/sfx/RCT2ClickOut.wav"
+                    "assets/sound/office_talk.mp3"
+                ],
+                "type": "audio",
+                "key": "annoying-guy-talking"
+            },
+            {
+                "url": [
+                    "assets/sound/RCT2ClickOut.wav"
                 ],
                 "type": "audio",
                 "key": "computer-success"
@@ -17,6 +24,13 @@
                 "url": "assets/images/FNAF-bg.jpg",
                 "type": "image",
                 "key": "FNAF-bg"
+            },
+            {
+                "url": [
+                    "assets/music/SMB Hot Damned RETRO (Ch 4 Warp Zone) edit.mp3"
+                ],
+                "type": "audio",
+                "key": "gameboy-music"
             },
             {
                 "url": "assets/fonts/nokia.png",
@@ -31,10 +45,10 @@
             },
             {
                 "url": [
-                    "assets/music/SMB Hot Damned RETRO (Ch 4 Warp Zone) edit.mp3"
+                    "assets/sound/office ambience RRR2.mp3"
                 ],
                 "type": "audio",
-                "key": "gameboy-music"
+                "key": "ambience"
             },
             {
                 "url": "assets/images/test-background.png",

@@ -18,7 +18,7 @@
             "label": "cameraBounds",
             "scope": "CLASS",
             "x": -481,
-            "y": -234,
+            "y": -300,
             "originX": 0,
             "originY": 0,
             "isFilled": true,
@@ -27,7 +27,7 @@
             "lineWidth": 3,
             "isStroked": true,
             "width": 1920,
-            "height": 820
+            "height": 885
         },
         {
             "type": "Image",
@@ -50,7 +50,7 @@
             "texture": {
                 "key": "ToidSketch"
             },
-            "x": -134,
+            "x": -216,
             "y": 320,
             "scaleX": 1.104608767712672,
             "scaleY": 1.104608767712672
@@ -121,6 +121,18 @@
             "fillColor": "#b967f8",
             "width": 200,
             "height": 150
+        },
+        {
+            "type": "Rectangle",
+            "id": "ccc7fbd2-d7e9-44aa-95c1-987b4bec64e5",
+            "label": "rectangle_1",
+            "x": -481,
+            "y": -300,
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "width": 1920,
+            "height": 70
         }
     ],
     "plainObjects": [],

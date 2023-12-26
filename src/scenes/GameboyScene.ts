@@ -5,6 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import UIScene from "./UIScene";
 /* END-USER-IMPORTS */
 
 export default class GameboyScene extends Phaser.Scene {
@@ -62,8 +63,11 @@ export default class GameboyScene extends Phaser.Scene {
 	 * Used to check if the player is mashing the same key.
 	 */
 	private lastKey: string | undefined;
+	private nextKey = 'ArrowLeft';
 
 	private music: Phaser.Sound.BaseSound
+
+	private UIScene: UIScene;
 
 	create() {
 
@@ -79,12 +83,11 @@ export default class GameboyScene extends Phaser.Scene {
 
 		this.scene.setVisible(false);
 
+		this.UIScene = this.scene.get('ui-scene') as UIScene;
 	}
 
 	keyDownHandler(event: KeyboardEvent)
 	{
-		console.debug(event.key);
-
 		if ((event.key === 'ArrowUp' || event.key === 'ArrowLeft' || event.key === 'ArrowRight')
 			&& this.lastKey !== event.key)
 		{
@@ -121,6 +124,8 @@ export default class GameboyScene extends Phaser.Scene {
 		this.screenColourActiveIndex = Phaser.Math.Wrap
 			(this.screenColourActiveIndex, 0, this.screenColours.length - 1);
 		this.background.fillColor = this.screenColours[this.screenColourActiveIndex];
+
+		this.UIScene.uIMeter.value += .8;
 	}
 
 	/* END-USER-CODE */

@@ -34,6 +34,20 @@ export default class UIScene extends Phaser.Scene {
 		reticle.isFilled = true;
 		reticle.fillColor = 4276545;
 
+		// gameoverText
+		const gameoverText = this.add.text(480, 259, "", {});
+		gameoverText.setOrigin(0.5, 0.5);
+		gameoverText.visible = false;
+		gameoverText.text = "Game Over";
+		gameoverText.setStyle({ "align": "right", "color": "#2c2c2cff", "fontSize": "36px", "fontStyle": "bold", "strokeThickness":6});
+
+		// gameoverDescriptionText
+		const gameoverDescriptionText = this.add.text(480, 310, "", {});
+		gameoverDescriptionText.setOrigin(0.5, 0.5);
+		gameoverDescriptionText.visible = false;
+		gameoverDescriptionText.text = "You got caught playing games by your boss";
+		gameoverDescriptionText.setStyle({ "align": "right", "color": "#2c2c2cff", "fontSize": "22px", "fontStyle": "bold", "strokeThickness":6});
+
 		// uIMeter (prefab fields)
 		uIMeter.fillColour = "#373737ff";
 		uIMeter.outlineColour = "#ffffffff";
@@ -42,13 +56,17 @@ export default class UIScene extends Phaser.Scene {
 		this.uIMeter = uIMeter;
 		this.reticle_1 = reticle_1;
 		this.reticle = reticle;
+		this.gameoverText = gameoverText;
+		this.gameoverDescriptionText = gameoverDescriptionText;
 
 		this.events.emit("scene-awake");
 	}
 
-	private uIMeter!: UIMeter;
+	public uIMeter!: UIMeter;
 	private reticle_1!: Phaser.GameObjects.Rectangle;
 	public reticle!: Phaser.GameObjects.Rectangle;
+	private gameoverText!: Phaser.GameObjects.Text;
+	private gameoverDescriptionText!: Phaser.GameObjects.Text;
 
 	/* START-USER-CODE */
 
@@ -57,6 +75,17 @@ export default class UIScene extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+	}
+
+	public setGameOverText(visible: boolean, description?: string)
+	{
+		this.gameoverText.setVisible(visible);
+		this.gameoverDescriptionText.setVisible(visible);
+		
+		if (description)
+		{
+			this.gameoverDescriptionText.setText(description);
+		}
 	}
 
 	/* END-USER-CODE */

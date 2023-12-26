@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import OfficeScene from "~/scenes/OfficeScene";
+import UIScene from "~/scenes/UIScene";
 /* END-USER-IMPORTS */
 
 export default class AnnoyingGuyPrefab extends Phaser.GameObjects.Image {
@@ -22,6 +23,11 @@ export default class AnnoyingGuyPrefab extends Phaser.GameObjects.Image {
 		this.setInteractive();
 		this.scene.input.on('pointerdown', this.pointerDownHandler, this);
 
+		this.talkingSound = this.scene.sound.add
+			('annoying-guy-talking', { loop: true });
+		this.talkingSound.play();
+		this.talkingSound.pause();
+
 		/* END-USER-CTR-CODE */
 	}
 
@@ -32,6 +38,8 @@ export default class AnnoyingGuyPrefab extends Phaser.GameObjects.Image {
 	private appearDelay = 10000;
 	private talkingTime = 10000;
 	private upsetTime = 10000;
+
+	private talkingSound: Phaser.Sound.BaseSound;
 
 	startSequence()
 	{
@@ -45,16 +53,19 @@ export default class AnnoyingGuyPrefab extends Phaser.GameObjects.Image {
 				{
 					delay: this.appearDelay,
 					duration: 1000,
-					alpha: 1
+					alpha: 1,
+					onComplete: () =>
+					{
+						this.talkingSound.resume();
+					}
 				},
 				{
 					delay: this.talkingTime,
 					duration: this.upsetTime,
 					tint: 0xff0000,
-					onComplete: () => 
-					{ 
-						this.timeUp
-					}
+					onComplete: this.timeUp,
+					callbackScope: this
+					
 				},
 			]
 		});
@@ -62,9 +73,9 @@ export default class AnnoyingGuyPrefab extends Phaser.GameObjects.Image {
 
 	timeUp()
 	{
-		let OfficeScene = this.scene as OfficeScene;
+		let uiScene = this.scene.scene.get('ui-scene') as UIScene;
 
-		OfficeScene.gameOver();
+		uiScene.setGameOverText(true, `You have rudely ignored your coworker!`);
 	}
 
 	pointerDownHandler(event: any)
@@ -74,12 +85,11 @@ export default class AnnoyingGuyPrefab extends Phaser.GameObjects.Image {
 		let cameraCenter = new Phaser.Geom.Point
 		(
 			this.scene.cameras.main.scrollX + this.scene.cameras.main.width / 2, 
-			(this.scene.cameras.main.scrollY + this.scene.cameras.main.height / 2) - 300
+			(this.scene.cameras.main.scrollY + this.scene.cameras.main.height / 2)
 		);
-		console.debug(imageRect);
-		console.debug(cameraCenter);
-		// if (Phaser.Geom.Rectangle.ContainsPoint(imageRect, cameraCenter))
-		if (true)
+		
+		if (Phaser.Geom.Rectangle.ContainsPoint(imageRect, cameraCenter))
+		// if (true)
 		{
 			// reticle is in this image
 
@@ -92,6 +102,8 @@ export default class AnnoyingGuyPrefab extends Phaser.GameObjects.Image {
 			this.upsetTime -= Phaser.Math.RND.integerInRange(100, 700);
 	
 			this.startSequence();
+
+			this.talkingSound.pause();
 		}
 		
 	}
